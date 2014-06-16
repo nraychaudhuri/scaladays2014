@@ -1,0 +1,29 @@
+To test this application follow these steps:
+=====================================
+
+- Run there instances of play application
+
+```
+run -Dhttp.port=9001 -Dakka.remote.netty.tcp.port=2551
+
+run -Dhttp.port=9002 -Dakka.remote.netty.tcp.port=2552
+
+run -Dhttp.port=9003 -Dakka.remote.netty.tcp.port=2553
+```
+
+> Note: We need to have start akka on port 2551 since it is configured as a seed node in application.conf file
+> Note: Make sure you hit the index page of each running play app so that cluster is formed. It is lazy in dev mode
+and not required for prod mode.
+
+- Then using curl we can do following:
+
+```
+#This will create the user actor in first node
+curl -v -X PUT http://localhost:9001/create/user/chad
+
+#We update the user state in 3rd node
+curl -v -X POST http://localhost:9003/update/user/chad?newState=winner
+```
+
+If everything works you should see the update message is processed by the actor in first node.
+
