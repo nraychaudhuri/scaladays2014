@@ -1,0 +1,15 @@
+@(modules: Pagelet)
+
+@main("Welcome to CircleTime home page") {
+
+ <h1>Checkout what is going on in your Circle</h1>
+
+ <div id="content">
+   <div id="wpasam" class="module"></div>
+   <div id="symbi" class="module"></div>
+   <div id="ads" class="module"></div>
+   <div id="wyfau" class="module"></div>
+ </div>
+ @modules
+
+}

@@ -1,0 +1,9 @@
+.module {
+    border: 2px solid;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+div {
+   margin: 50px;
+}
