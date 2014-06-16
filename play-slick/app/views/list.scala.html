@@ -1,0 +1,11 @@
+@(computers: Seq[(models.Computer, Option[models.Company])])
+
+@main("Computers") {
+
+    <h1>Computers</h1>
+    <ul>
+    @for((computer, Some(company)) <- computers) {
+        <li>@{computer.name} - (@{computer.id}) - Made by @{company.name}</li>
+    }
+    </ul>
+}
