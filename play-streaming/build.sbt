@@ -15,7 +15,7 @@ libraryDependencies ++= Seq(
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
-//templateFormats := templateFormats.value + ("pagelet" -> "util.PageletFormat")
-//
-//templateImports += "util.Pagelet"
+templateFormats := templateFormats.value + ("pagelet" -> "util.PageletFormat")
+
+templateImports += "util.Pagelet"
 

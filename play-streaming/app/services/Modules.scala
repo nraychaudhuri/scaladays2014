@@ -26,19 +26,19 @@ object Modules {
 
   object ServicesYouMightBeInterested extends Module {
     def latestUpdate(user: UserPreference): Future[Html] = {
-      Promise.timeout(Html("here are few services you might like"), 1.seconds)
+      Promise.timeout(Html("here are few services you might like"), 5.seconds)
     }
   }
 
   object WhatYourFriendsAreUpto extends Module {
     def latestUpdate(user: UserPreference): Future[Html] = {
-      Promise.timeout(Html("Your friend just got a new job"), 500.milliseconds)
+      Promise.timeout(Html("Your friend just got a new job"), 4.seconds)
     }
   }
 
   object Ads extends Module {
     def latestUpdate(user: UserPreference): Future[Html] = {
-      Promise.timeout(Html("Take Play training course from Typesafe"), 100.milliseconds)
+      Promise.timeout(Html("Take Play training course from Typesafe"), 3.seconds)
     }
   }
 
