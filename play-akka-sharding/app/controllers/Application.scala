@@ -1,13 +1,14 @@
 package controllers
 
 import akka.actor.ActorRef
+import global.AppGlobal
 import play.api._
 import play.api.mvc._
 import actors.GameController
 
 object Application extends Controller {
 
-  val gameController: ActorRef = ???
+  val gameController: ActorRef = AppGlobal.system.actorOf(GameController.props, "controller")
 
   def index = Action {
     Ok("game node is up")

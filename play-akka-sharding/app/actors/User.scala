@@ -44,4 +44,15 @@ object User {
   case class Login(userId: String) extends UserMessage
   case class Logout(userId: String) extends UserMessage
   case class GameStateChanged(userId: String, newState: Any) extends UserMessage
+
+  val shardName = "users"
+
+  val idExtractor : ShardRegion.IdExtractor = {
+    case u: UserMessage => (u.userId, u)
+  }
+
+  val shardResolver: ShardRegion.ShardResolver = {
+    case u: UserMessage =>  (u.userId.hashCode % 100).toString
+  }
+
 }

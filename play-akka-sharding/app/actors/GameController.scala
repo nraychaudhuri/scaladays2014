@@ -7,7 +7,7 @@ class GameController extends Actor {
 
   import GameController._
 
-  val region: ActorRef = ???
+  val region: ActorRef = ClusterSharding(context.system).shardRegion(User.shardName)
 
   def receive: Receive = {
     case CreateNewUser(userId) =>
