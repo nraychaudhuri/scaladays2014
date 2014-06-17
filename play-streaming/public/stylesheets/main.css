@@ -2,6 +2,7 @@
     border: 2px solid;
     border-radius: 25px;
     padding: 20px;
+    min-height: 20px;
 }
 
 div {
