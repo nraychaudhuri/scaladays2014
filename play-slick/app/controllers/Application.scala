@@ -12,17 +12,12 @@ object Application extends Controller {
     Ok(views.html.index("Your new application is ready."))
   }
 
-  def list = AlwaysAllowDBAction { implicit rs =>
+  def list = DBAction { implicit rs =>
      val computers = Computers.list()
      Ok(views.html.list(computers))
   }
 }
 
-object AlwaysAllowDBAction extends CurrentDBAction {
-
-  override def isDBAvailable(name: String): Boolean = true
-
-}
 
 
 
